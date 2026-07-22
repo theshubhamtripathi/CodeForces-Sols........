@@ -78,3 +78,27 @@ int main(){
     }
     return 0;
 }
+
+cf 1679 A
+//Here the main concept was to find the min and max busses needed and w find that
+//by dividing by 4 to find the max one (using floor here)
+//by dividing by 6 to find the min one (using ceiling here) we add 5 here cause it is using the same thing like ceil
+//beacsue in copetitive programming we should not use ceil and floor as they may cause some errors.
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int q;
+    cin>>q;
+    while(q--){
+        long long n;
+        cin>>n;
+        if(n<4 || n%2 == 1){
+            cout<<-1<<endl;
+        }
+        else{
+            cout<<(n+5)/6/*min*/<<" "<<n/4/*max*/<<endl;
+        }
+    }
+    return 0;
+}
