@@ -21,4 +21,3 @@ This repository serves as a personal archive of solved problems from **Codeforce
 
 ---
 
-## 📊 Solution Breakdown
