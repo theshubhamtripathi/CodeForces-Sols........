@@ -102,3 +102,49 @@ int main(){
     }
     return 0;
 }
+
+
+cf 1675 B
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+void solve() {
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+
+    int ans = 0;
+    // Walk backward from second-to-last element
+    for (int i = n - 2; i >= 0; i--) {
+        while (a[i] >= a[i + 1] && a[i] > 0) {
+            a[i] /= 2;
+            ans++;
+        }
+        // If a[i] is still >= a[i+1], it means both are 0 
+        // and making the array strictly increasing is impossible.
+        if (a[i] >= a[i + 1]) {
+            cout << -1 << "\n";
+            return;
+        }
+    }
+
+    cout << ans << "\n";
+}
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int q;
+    if (cin >> q) {
+        while (q--) {
+            solve();
+        }
+    }
+    return 0;
+}
