@@ -148,3 +148,50 @@ int main() {
     }
     return 0;
 }
+
+Cf 1666 D
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    // Optional fast I/O
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int q;
+    cin >> q;
+    while (q--) {
+        string s, t;
+        cin >> s >> t;
+        
+        unordered_map<char, int> mp;
+        for (int i = 0; i < t.length(); i++) {
+            mp[t[i]]++;
+        }
+        
+        for (int i = s.length() - 1; i >= 0; i--) {
+            // FIX 1: Added missing ']'
+            if (mp[s[i]] > 0) {
+                mp[s[i]]--; 
+            }
+            else {
+                s[i] = '.';
+            }
+        }
+        
+        string final_string = "";
+        // FIX 2: Replaced undefined 'n' with 's.length()'
+        for (int i = 0; i < s.length(); i++) { 
+            if (s[i] != '.') {
+                final_string += s[i];
+            }
+        }
+        
+        if (final_string == t) {
+            cout << "YES\n";
+        } else {
+            cout << "NO\n";
+        }
+    }
+    return 0;
+}
