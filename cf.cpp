@@ -195,3 +195,45 @@ int main() {
     }
     return 0;
 }
+
+C f 1665 B
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int q;
+    cin>>q;
+    while(q--){
+        
+        int n;
+        cin>>n;
+        
+        vector<int> a(n);
+        for(int i=0;i<n;i++){
+            cin>>a[i];
+        }
+        
+        unordered_map<int,int> mp;
+        for(auto it : a){
+            mp[it]++;
+        }
+        int mf = 0; //maxfreq
+        for(auto it : mp){
+            mf = max(mf,it.second);
+        }
+        
+        int o = 0;
+        while(mf<n){
+            o++;
+            if(mf*2<=n){
+                o += mf;
+                mf *= 2;
+            }
+            else{
+                o += n-mf;
+                mf = n;
+            }
+        }
+        cout<<o<<endl;
+    }
+    return 0;
+}
