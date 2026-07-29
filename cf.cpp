@@ -237,3 +237,42 @@ int main(){
     }
     return 0;
 }
+
+Cf 1624 B 
+//In this question we just have to know about the concept of ap and the one formula of ap that is a+b = 2b
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int q;
+    cin>>q;
+    while(q--){
+        
+        long long a,b,c;
+        cin>>a>>b>>c;
+        
+        bool answer = false;
+        
+        long long na = 2*b-c;
+        if(na/a > 0 && na%a == 0){
+            answer = true;
+        }
+        
+        long long nb = (a + c)/2;
+        if(na/a > 0 && na%a == 0 && (a-c)%2 == 0){
+            answer = true;
+        }
+        
+        long long nc = 2*b-a;
+        if(nc/c > 0 && nc%c == 0){
+            answer = true;
+        }
+        
+        if(answer){
+            cout<<"YES"<<endl;
+        }
+        else{
+            cout<<"NO"<<endl;
+        }
+    }
+    return 0;
+}
