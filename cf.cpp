@@ -276,3 +276,42 @@ int main(){
     }
     return 0;
 }
+
+
+Cf 1607 B
+In this question we diid nothing we just checked that after 4 iteration evverything was reating that we can see after dry run also the n is very high so we have to check that using if else as only linear solution was needed tos olev thos so we solve it by this logic only
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int q;
+    cin>>q;
+    while(q--){
+        long long s,j;
+        cin>>s>>j;
+        
+        long long fpos;
+        
+        if(j%4 == 1){
+            fpos = -j;
+        }
+        else if(j%4 == 2){
+            fpos = 1;
+        }
+        else if(j%4 == 3){
+            fpos = j+1;
+        }
+        else if(j%4 == 0){
+            fpos = 0;
+        }
+        
+        if(s%2 == 0){
+            fpos = s + fpos;
+        }
+        else{
+            fpos = s - fpos;
+        }
+        
+        cout<<fpos<<endl;
+    }
+    return 0;
+}
