@@ -315,3 +315,25 @@ int main(){
     }
     return 0;
 }
+
+
+C f 1606 A
+//Here we just need to check whether the first letter and the last letter is same or not if not then make it same and return the same one .......... just this we have to do in this 
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int q;
+    cin>>q;
+    while(q--){
+        string s;
+        cin>>s;
+        int n = s.size();
+        
+        if(s[0] != s[n-1]){
+            s[n-1] = s[0];
+        }
+        
+        cout<<s<<endl;
+    }
+    return 0;
+}
