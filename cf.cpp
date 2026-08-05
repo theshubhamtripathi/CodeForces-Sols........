@@ -337,3 +337,86 @@ int main(){
     }
     return 0;
 }
+
+
+C f 1373 B
+//In this question we just did nothing we counted the number of 0s and 1s and then return the min of both and then check the whether they are evven or not if evven then print YES else NO 
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int q;
+    cin>>q;
+    while(q--){
+        string s;
+        cin>>s;
+        //inputs
+        int c1 = 0;
+        int c0 = 0;
+        int minc = INT_MAX;
+        for(int i=0;i<s.length();i++){
+            if(s[i] == '1'){
+                c1++;
+            }
+            else{
+                c0++;
+            }
+        }
+        minc = min(c1,c0);
+        if(minc%2 == 0){
+            cout<<"NET"<<endl;
+        }
+        else{
+            cout<<"DA"<<endl;
+        }
+    }
+    return 0;
+}
+
+C f 1380 A
+//In this question we just have to find the peak elemmt types like we checkded whther our current element is greater than the previous one and also greater than the next one 
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int q;
+    cin>>q;
+    while(q--){
+        int n;
+        cin>>n;
+        vector<int> a(n);
+        for(int i=0;i<n;i++){
+            cin>>a[i];
+        }
+        //inputs 
+        int flag = 0;
+        for(int j=1;j<n-1;j++){
+            
+            int i = -1;
+            int k = -1;
+            
+            for(int left=0;left<j;left++){
+                if(a[j]>a[left]){
+                    i = left;
+                    break;
+                }
+            }
+            
+            for(int right=j+1;right<n;right++){
+                if(a[j]>a[right]){
+                    k = right;
+                    break;
+                }
+            }
+            
+            if(i != -1 && k!= -1){
+                cout<<"YES"<<endl;
+                cout<<i+1<<" "<<j+1<<" "<<k+1<<endl;
+                flag = 1;
+                break;
+            }
+        }
+        if(flag == 0){
+            cout<<"NO"<<endl;
+        }
+    }
+    return 0;
+}    
