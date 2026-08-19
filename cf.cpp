@@ -420,3 +420,38 @@ int main(){
     }
     return 0;
 }    
+
+
+CF 1471 A
+//See basically 2 things you must have command on this problem to solve 
+//first the ceil can be implemented as ceil(a/b) as a+b-1/b using normal division
+//2nd thing we should focus on basically is max is calculated after when we combine dont combine like do the things individuslly
+//3rd min is calculated when we compute using adding all the things at first then dividing it together
+//last thing to maibtain the docimal presiocion of one we should multiple by 1.0
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int q;
+    cin>>q;
+    while(q--){
+        int n,x;
+        cin>>n>>x;
+        
+        vector<long long> a(n);
+        for(int i=0;i<n;i++){
+            cin>>a[i];
+        }
+        
+        long long max = 0;
+        long long min = 0;
+        
+        for(int i=0;i<n;i++){
+            max += ceil(a[i]*1.0/x);
+            min += a[i];
+        }
+        min = ceil(min*1.0/x);
+        cout<<min<<" "<<max<<endl;
+    }
+    return 0;
+}
